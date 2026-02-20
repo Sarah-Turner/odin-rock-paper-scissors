@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+button {
+    color: white;
+    background-color: royalblue;
+    padding: 10px 40px;
+    border-radius: 10px;
+    width: 140px;
+    border: 0px;
+}
+
+h2 {
+    margin: 0px;
+}
