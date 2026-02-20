@@ -67,27 +67,66 @@ function playRound(humanChoice, computerChoice) {
 
 function pressRock(event) {
     let outcome = playRound("rock", getComputerChoice());
-    humanScore += outcome;
-    computerScore -= outcome;
+    if (outcome < 0) {
+        computerScore++;
+    } else if (outcome > 0) {
+        humanScore++;
+    }
+    const lastOutcome = document.querySelector(".scoreBox").lastChild;
+    lastOutcome.textContent += ` Human: ${humanScore} Computer: ${computerScore}`;
+    const scoreBox = document.querySelector(".scoreBox");
+    const result = document.querySelector(".matchResult");
+    if (humanScore == 5) {
+        result.textContent += "You won the game!";
+        scoreBox.appendChild(result);
+    } else if (computerScore == 5) {
+        result.textContent += "The computer won the game!";
+    }
 }
 
 function pressPaper(event) {
     let outcome = playRound("paper", getComputerChoice());
-    humanScore += outcome;
-    computerScore -= outcome;
+    if (outcome < 0) {
+        computerScore++;
+    } else if (outcome > 0) {
+        humanScore++;
+    }
+    const lastOutcome = document.querySelector(".scoreBox").lastChild;
+    lastOutcome.textContent += ` Human: ${humanScore} Computer: ${computerScore}`;
+    const scoreBox = document.querySelector(".scoreBox");
+    const result = document.querySelector(".matchResult");
+    if (humanScore == 5) {
+        result.textContent += "You won the game!";
+        scoreBox.appendChild(result);
+    } else if (computerScore == 5) {
+        result.textContent += "The computer won the game!";
+    }
 }
 
 function pressScissors(event) {
     let outcome = playRound("scissors", getComputerChoice());
-    humanScore += outcome;
-    computerScore -= outcome;
+    if (outcome < 0) {
+        computerScore++;
+    } else if (outcome > 0) {
+        humanScore++;
+    }
+    const lastOutcome = document.querySelector(".scoreBox").lastChild;
+    lastOutcome.textContent += ` Human: ${humanScore} Computer: ${computerScore}`;
+    const scoreBox = document.querySelector(".scoreBox");
+    const result = document.querySelector(".matchResult");
+    if (humanScore == 5) {
+        result.textContent += "You won the game!";
+        scoreBox.appendChild(result);
+    } else if (computerScore == 5) {
+        result.textContent += "The computer won the game!";
+    }
 }
 
 function playGame() {
     const rockBtn = document.querySelector(".rock");
     const paperBtn = document.querySelector(".paper");
     const scissorsBtn = document.querySelector(".scissors");
-
+    
     rockBtn.addEventListener("click", pressRock);
     paperBtn.addEventListener("click", pressPaper);
     scissorsBtn.addEventListener("click", pressScissors);
