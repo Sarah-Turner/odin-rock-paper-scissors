@@ -44,6 +44,10 @@ function pressBtn(event) {
     let choice = event.target.className;
     console.log(choice);
     let outcome = playRound(choice, getComputerChoice());
+    updateScore(outcome);
+}
+
+function updateScore(outcome) {
     if (outcome < 0) {
         computerScore++;
     } else if (outcome > 0) {
