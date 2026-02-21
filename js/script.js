@@ -22,41 +22,21 @@ function playRound(humanChoice, computerChoice) {
     let outcome = 0;
     const result = document.createElement("p");
     const scoreBox = document.querySelector(".scoreBox");
-    if (humanChoice === "rock" && computerChoice === "paper") {
-        result.textContent = "You lose! Paper beats Rock!";
-        scoreBox.appendChild(result);
-        console.log("You lose! Paper beats Rock!");
-        outcome = -1;
-    } else if (humanChoice === "rock" && computerChoice === "scissors") {
-        result.textContent = "You win! Rock beats Scissors!";
-        scoreBox.appendChild(result);
-        console.log("You win! Rock beats Scissors!");
-        outcome = 1;
-    } else if (humanChoice === "paper" && computerChoice === "scissors") {
-        result.textContent = "You lose! Scissors beats Paper!";
-        scoreBox.appendChild(result);
-        console.log("You lose! Scissors beats Paper!");
-        outcome = -1;
-    } else if (humanChoice === "paper" && computerChoice === "rock") {
-        result.textContent = "You win! Paper beats Rock!";
-        scoreBox.appendChild(result);
-        console.log("You win! Paper beats Rock!");
-        outcome = 1;
-    } else if (humanChoice === "scissors" && computerChoice === "rock") {
-        result.textContent = "You lose! Rock beats Scissors!";
-        scoreBox.appendChild(result);
-        console.log("You lose! Rock beats Scissors!");
-        outcome = -1;
-    } else if (humanChoice === "scissors" && computerChoice === "paper") {
-        result.textContent = "You win! Scissors beats Paper!";
-        scoreBox.appendChild(result);
-        console.log("You win! Scissors beats Paper!");
-        outcome = 1;
-    } else {
+
+    if (humanChoice === computerChoice) {
         result.textContent = "Tie!";
         scoreBox.appendChild(result);
         console.log("Tie!");
+    } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
+        result.textContent = `You win ${humanChoice} beats ${computerChoice}!`;
+        scoreBox.appendChild(result);
+        outcome = 1;
+    } else {
+        result.textContent = `You lose ${computerChoice} beats ${humanChoice}!`;
+        scoreBox.appendChild(result);
+        outcome = -1;
     }
+
     return outcome;
 }
 
