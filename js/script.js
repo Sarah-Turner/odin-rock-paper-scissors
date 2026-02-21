@@ -18,11 +18,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function getUserChoice() {
-    let userChoice = prompt("Enter rock, paper, or scissors: ");
-    return userChoice.toLowerCase();
-}
-
 function playRound(humanChoice, computerChoice) {
     let outcome = 0;
     const result = document.createElement("p");
