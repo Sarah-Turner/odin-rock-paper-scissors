@@ -40,46 +40,10 @@ function playRound(humanChoice, computerChoice) {
     return outcome;
 }
 
-function pressRock(event) {
-    let outcome = playRound("rock", getComputerChoice());
-    if (outcome < 0) {
-        computerScore++;
-    } else if (outcome > 0) {
-        humanScore++;
-    }
-    const lastOutcome = document.querySelector(".scoreBox").lastChild;
-    lastOutcome.textContent += ` Human: ${humanScore} Computer: ${computerScore}`;
-    const scoreBox = document.querySelector(".scoreBox");
-    const result = document.querySelector(".matchResult");
-    if (humanScore == 5) {
-        result.textContent += "You won the game!";
-        scoreBox.appendChild(result);
-    } else if (computerScore == 5) {
-        result.textContent += "The computer won the game!";
-    }
-}
-
-function pressPaper(event) {
-    let outcome = playRound("paper", getComputerChoice());
-    if (outcome < 0) {
-        computerScore++;
-    } else if (outcome > 0) {
-        humanScore++;
-    }
-    const lastOutcome = document.querySelector(".scoreBox").lastChild;
-    lastOutcome.textContent += ` Human: ${humanScore} Computer: ${computerScore}`;
-    const scoreBox = document.querySelector(".scoreBox");
-    const result = document.querySelector(".matchResult");
-    if (humanScore == 5) {
-        result.textContent += "You won the game!";
-        scoreBox.appendChild(result);
-    } else if (computerScore == 5) {
-        result.textContent += "The computer won the game!";
-    }
-}
-
-function pressScissors(event) {
-    let outcome = playRound("scissors", getComputerChoice());
+function pressBtn(event) {
+    let choice = event.target.className;
+    console.log(choice);
+    let outcome = playRound(choice, getComputerChoice());
     if (outcome < 0) {
         computerScore++;
     } else if (outcome > 0) {
@@ -98,13 +62,9 @@ function pressScissors(event) {
 }
 
 function playGame() {
-    const rockBtn = document.querySelector(".rock");
-    const paperBtn = document.querySelector(".paper");
-    const scissorsBtn = document.querySelector(".scissors");
-    
-    rockBtn.addEventListener("click", pressRock);
-    paperBtn.addEventListener("click", pressPaper);
-    scissorsBtn.addEventListener("click", pressScissors);
+    const buttons = document.querySelectorAll("button");
+    console.log(buttons);
+    buttons.forEach((button) => {button.addEventListener("click", pressBtn)});
 }
 
 playGame();
